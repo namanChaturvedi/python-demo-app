@@ -1,0 +1,12 @@
+@Library('jenkins-shared-library')_
+genericServicePipeline_py(
+    test: true,
+    test_integration: false,
+    test_e2e: true,
+    enforce_lint: false,
+    enforce_format: false,
+    image_name: "cicd-demo",
+    workload: "cicd-demo",
+    environment: "dev",
+    email_recipient: "example@domain.com"
+)
