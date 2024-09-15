@@ -1,0 +1,24 @@
+apiVersion: devx/v1alpha1
+kind: Component
+metadata:
+  name: cicd-demo
+spec:
+  type: image
+  lifeCycle: Permanent
+  image:
+    repository: docker.io/cicd-demo/cicd-demo
+    tag: ""
+  api:
+    rest:
+      - port: 8000
+        svcDiscoveryEnabled: true
+        scope: public
+        name: http
+        endpoints:
+          - type: process
+            path: /
+  volumes:
+    - name: tmp
+      type: empty #"empty","persistent" can be passed
+      mountPath: /tmp
+
